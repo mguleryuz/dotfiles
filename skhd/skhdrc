@@ -1,0 +1,79 @@
+# Change space
+cmd - 1 : yabai -m space --focus 1 || yabai -m space --focus recent
+cmd - 2 : yabai -m space --focus 2 || yabai -m space --focus recent
+cmd - 3 : yabai -m space --focus 3 || yabai -m space --focus recent
+cmd - 4 : yabai -m space --focus 4 || yabai -m space --focus recent
+cmd - 5 : yabai -m space --focus 5 || yabai -m space --focus recent
+cmd - 6 : yabai -m space --focus 6 || yabai -m space --focus recent
+cmd - 7 : yabai -m space --focus 7 || yabai -m space --focus recent
+cmd - 8 : yabai -m space --focus 8 || yabai -m space --focus recent
+cmd - 9 : yabai -m space --focus 9 || yabai -m space --focus recent
+
+# Move window to space
+cmd + shift - 1 : yabai -m window --space 1
+cmd + shift - 2 : yabai -m window --space 2
+cmd + shift - 3 : yabai -m window --space 3
+cmd + shift - 4 : yabai -m window --space 4
+cmd + shift - 5 : yabai -m window --space 5
+cmd + shift - 6 : yabai -m window --space 6
+cmd + shift - 7 : yabai -m window --space 7
+cmd + shift - 8 : yabai -m window --space 8
+cmd + shift - 9 : yabai -m window --space 9
+
+# Move windows
+cmd + shift - left: yabai -m window --warp west
+cmd + shift - down: yabai -m window --warp south
+cmd + shift - up: yabai -m window --warp north
+cmd + shift - right: yabai -m window --warp east
+
+# Increase padding (-)
+ctrl + alt + cmd - 0x1B : yabai -m space --padding rel:20:20:20:20
+# Decrease gap (-)
+ctrl + alt + shift - 0x1B : yabai -m space --gap rel:10
+
+
+# Decrease padding (+)
+ctrl + alt + cmd - 0x18 : yabai -m space --padding rel:-20:-20:-20:-20
+# Increase gap (+)
+ctrl + alt + shift - 0x18 : yabai -m space --gap rel:-10
+
+# Toggle floating mode
+ctrl + shift - space : yabai -m window --toggle float
+
+# defines a new mode 'resize' with an on_enter command, that captures keypresses
+:: resize @ : yabai -m config active_window_opacity 1; yabai -m config normal_window_opacity 0.9;
+
+# from 'default' mode, activate mode 'resize'
+# (this is the key combination you want to use to enter resize mode)
+ctrl - escape ; resize
+
+# from 'resize' mode, activate mode 'default'
+# (this is the keypress required to leave resize mode)
+resize < escape ; default
+
+# equalize windows
+resize < cmd - 0 : yabai -m space --balance
+
+# increase window size
+resize < left : yabai -m window --resize left:-25:0
+resize < down : yabai -m window --resize bottom:0:25
+resize < up : yabai -m window --resize top:0:-25
+resize < right : yabai -m window --resize right:25:0
+
+# Restart yabai
+shift + alt + cmd - r : yabai --restart-service
+
+# Close window
+cmd + shift - q: yabai -m window --close
+
+# Open a new terminal
+cmd - return: open -na "iterm" --args -n
+
+# Open a new Brave Browser window
+cmd + shift - return: open -na "Brave Browser" --args --new-window
+
+# Open File Explorer
+cmd + shift - n: open .
+
+# Open Settings
+ctrl + shift - s: open -a "System Preferences"
