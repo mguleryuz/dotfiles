@@ -44,4 +44,4 @@ yabai -m rule --add title=".*General.*" manage=off
 yabai -m rule --add app=".*General.*" manage=off
 
 
-yabai -m rule --add title=".*(Utility|MetaMask|Auth|Sign in|1Password|Boom 3D|Digital Colour Meter|Notes).*" manage=off
+yabai -m rule --add title=".*(FaceTime|Utility|MetaMask|Auth|Sign in|1Password|Boom 3D|Digital Colour Meter|Notes).*" manage=off
