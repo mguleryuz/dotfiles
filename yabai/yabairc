@@ -28,20 +28,7 @@ yabai -m config split_ratio 0.5
 yabai -m config window_topmost off
 
 # Floating Window Settings
-yabai -m rule --add title=".*Settings.*" manage=off
-yabai -m rule --add app=".*Settings.*" manage=off
+EXCLUDE_RULE=".*(Settings|Preferences|Information|Progress|General|FaceTime|Utility|MetaMask|Auth|Sign in|1Password|Boom 3D|Digital Colour Meter|Notes).*"
 
-yabai -m rule --add title=".*Preferences.*" manage=off
-yabai -m rule --add app=".*Preferences.*" manage=off
-
-yabai -m rule --add title=".*Information.*" manage=off
-yabai -m rule --add app=".*Information.*" manage=off
-
-yabai -m rule --add title=".*Progress.*" manage=off
-yabai -m rule --add app=".*Progress.*" manage=off
-
-yabai -m rule --add title=".*General.*" manage=off
-yabai -m rule --add app=".*General.*" manage=off
-
-
-yabai -m rule --add title=".*(FaceTime|Utility|MetaMask|Auth|Sign in|1Password|Boom 3D|Digital Colour Meter|Notes).*" manage=off
+yabai -m rule --add title="$EXCLUDE_RULE" manage=off
+yabai -m rule --add app="$EXCLUDE_RULE" manage=off

@@ -63,6 +63,8 @@ brew install koekeishiya/formulae/skhd
 brew install neofetch
 brew install fish
 brew tap FelixKratz/formulae
+brew install jq
+brew install gh
 brew install sketchybar
 curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.23/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 ```
