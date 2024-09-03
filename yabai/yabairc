@@ -1,34 +1,45 @@
-# Load the scripting addition                                             
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+#!/usr/bin/env sh
+
 sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 
 # Top Bar
-yabai -m config external_bar all:39:0
 
 # General Settings
 PADDING=2
 
-yabai -m config layout bsp  # Use bsp layout by default   
-yabai -m config window_gap 2  # Set a gap between windows
-yabai -m config top_padding $PADDING 
-yabai -m config bottom_padding $PADDING
-yabai -m config left_padding $PADDING
-yabai -m config right_padding $PADDING
-yabai -m config mouse_follows_focus on  # Mouse follows window focus
-yabai -m config focus_follows_mouse autoraise  # Windows gain focus when hovering
+yabai -m config external_bar all:39:0 \
+    layout bsp \
+    mouse_follows_focus on \
+    focus_follows_mouse autoraise \
+    split_ratio 0.5 \
+    \
+    window_zoom_persist off \
+    window_topmost off \
+    window_shadow float \
+    window_opacity on \
+    window_opacity_duration 0.2 \
+    active_window_opacity 1.0 \
+    normal_window_opacity 0.95 \
+    window_animation_duration 0.3 \
+    \
+    window_gap $PADDING \
+    top_padding $PADDING \
+    bottom_padding $PADDING \
+    left_padding $PADDING \
+    right_padding $PADDING \
+    \
+    auto_balance off \
+    auto_padding on \
+    mouse_modifier fn \
+    mouse_action1 move \
+    mouse_action2 resize \
+    mouse_drop_action swap
 
-# Window Behavior
-yabai -m config window_shadow off
-yabai -m config window_opacity on
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9
-yabai -m config split_ratio 0.5
-
-# Fullscreen behavior
-yabai -m config window_topmost off
-
-# Floating Window Settings
-EXCLUDE_RULE=".*(Settings|Preferences|Information|Progress|General|FaceTime|Utility|MetaMask|Auth|Sign in|1Password|Boom 3D|Digital Colour Meter|Notes).*"
+# Exclude problematic apps from being managed:
+EXCLUDE_RULE=".*(CyberGhost|Settings|Preferences|Information|Progress|General|FaceTime|Utility|MetaMask|Auth|Sign|Tab|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Copy|Connect|Move|Info|Pref|Calculator).*"
 
 yabai -m rule --add title="$EXCLUDE_RULE" manage=off
+yabai -m rule --add label="$EXCLUDE_RULE" manage=off
 yabai -m rule --add app="$EXCLUDE_RULE" manage=off
