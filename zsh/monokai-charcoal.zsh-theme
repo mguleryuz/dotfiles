@@ -26,16 +26,13 @@ FG[autosuggestion]="#505050" # Grey for autosuggestions
 FG[selection]="#6688cc"      # Blueish background for selection
 
 # Git prompt colors
-FG[git_user]="#A6E22E"  # Green for Git user
-FG[git_dirty]="#F92672" # Pink for dirty
-FG[git_clean]="#A6E22E" # Green for clean
+FG[git_user]="#A6E22E"   # Green for Git user
+FG[git_dirty]="#F92672"  # Pink for dirty
+FG[git_clean]="#A6E22E"  # Green for clean
+FG[git_branch]="#66D9EF" # Cyan for branch name
 
 # Zsh Prompt Setup
 setopt prompt_subst
-
-# Define the prompt
-PROMPT='%F{${FG[user]}}%n%f %F{${FG[cwd]}}%~%f '
-RPROMPT='%F{${FG[git_user]}}$(git_prompt_info)%f'
 
 # Git prompt function (You can customize or extend this function)
 function git_prompt_info() {
@@ -45,6 +42,20 @@ function git_prompt_info() {
     echo "%F{${FG[git_clean]}}✔%f"
   fi
 }
+
+# Find and set branch name var if in git repository.
+function git_branch_name() {
+  branch=$(git symbolic-ref HEAD 2>/dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]]; then
+    :
+  else
+    echo "%F{${FG[git_branch]}}- ($branch)%f"
+  fi
+}
+
+# Define the prompt
+PROMPT='%F{${FG[user]}}%n%f %F{${FG[cwd]}}%~%f $(git_branch_name) %F{${FG[command]}}>%f '
+RPROMPT='%F{${FG[git_user]}}$(git_prompt_info)%f'
 
 # Zsh Autosuggestions and selection color (if you use zsh-syntax-highlighting or zsh-autosuggestions)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=${FG[autosuggestion]}"
