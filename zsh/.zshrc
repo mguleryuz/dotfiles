@@ -1,25 +1,22 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+# paths
+source /Users/anon/.zshenv
+# foundry
+export PATH="$PATH:/Users/anon/.foundry/bin"
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 # bun completions
 [ -s "/Users/anon/.bun/_bun" ] && source "/Users/anon/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
 # qt5
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
-
-source /Users/anon/.zshenv
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-npm-scripts-autocomplete)
+# oh-my-zsh
+plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-npm-scripts-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
+# theme
 source ~/.config/zsh/monokai-charcoal.zsh-theme
 
 # Check if running in iTerm2
