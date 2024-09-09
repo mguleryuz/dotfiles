@@ -1,4 +1,4 @@
-# Mguleryuz's `yabai` `skhd` `sketchybar` `iTerm2` `fish` Configuration
+# Mguleryuz's `yabai` `skhd` `sketchybar` `iTerm2` `zsh` Configuration
 
 <img src="./preview.png" />
 
@@ -47,6 +47,12 @@
 
 If you decide you don't want SIP disabled, follow the steps above to enter Recovery Mode again, but type `csrutil enable` instead.
 
+## Either run the setup script or follow the manual instructions below
+
+```bash
+chmod +x setup.sh && ./setup.sh
+```
+
 ## Step 1: Install Homebrew
 
 First, install Homebrew, the package manager for macOS, if you haven't already. Open the Terminal and run the following command:
@@ -65,7 +71,6 @@ brew install --cask iterm2
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 brew install neofetch
-brew install fish
 brew tap FelixKratz/formulae
 brew install jq
 brew install gh
@@ -77,33 +82,65 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.
 
 Yabai uses the macOS Mach APIs to inject code into `Dock.app`, which requires elevated (root) privileges. To configure your user to execute `yabai --load-sa` as the root user without having to enter a password, run the one liner:
 
-### Use a One-Liner to Update the Sudoers File
+### Use a One-Liner to Update the Sudoers File ( If Yabai SA is not loaded )
+
+````bash
 
 You need to add a new configuration entry that is loaded by `/etc/sudoers`.
 
 ```bash
 echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
-```
+````
 
-## Step 4: Set Fish as Default Shell
+## Step 4: Install Oh My Zsh and Plugins
 
-To set Fish as your default shell, run:
+1. **Install Oh My Zsh**:
 
-```bash
-echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/fish
-```
+   ```bash
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
 
-Restart your terminal for the change to take effect.
+2. **Install Plugins**:
 
-## Step 5: Copy Over Configuration Files
+   - **zsh-autosuggestions**:
+
+     ```bash
+     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+     ```
+
+   - **zsh-completions**:
+
+     ```bash
+     git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
+     ```
+
+   - **zsh-syntax-highlighting**:
+
+     ```bash
+     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+     ```
+
+   - **zsh-npm-scripts-autocomplete**:
+
+     ```bash
+     git clone https://github.com/nice-regex/zsh-npm-scripts-autocomplete ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-npm-scripts-autocomplete
+     ```
+
+## Step 5: Disable native space order settings
+
+**5.1: Navigate To Setting/Desktop & Dock/Desktop/Mission Control**
+
+- Disable: Automatically rearrange Spaces based on recent use
+- Deisable: When Switching to an application, switch to a Space with open windows for the application
+
+## Step 6: Copy Over Configuration Files
 
 Now, copy your configuration files for Fish, Yabai, and Skhd to the appropriate directories. Run the following commands:
 
-1. **Fish configuration**:
+1. **Zsh configuration**:
 
    ```bash
-   cp -r fish ~/.config
+   cp -r zsh ~/.config
    ```
 
 2. **Yabai configuration**:
@@ -122,6 +159,12 @@ Now, copy your configuration files for Fish, Yabai, and Skhd to the appropriate 
 
    ```bash
    cp -r sketchybar ~/.config
+   ```
+
+5. **Zsh source configuration**:
+
+   ```bash
+   echo "source ~/.config/zsh/.zshrc" >> ~/.zshrc
    ```
 
 ## Step 6: Restart Services
