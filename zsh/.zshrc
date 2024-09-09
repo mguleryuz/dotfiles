@@ -1,17 +1,17 @@
 # Load environment variables
 source /Users/anon/.zshenv
 
-# Paths
-export PATH="$PATH:/Users/anon/.foundry/bin"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
-
 # Oh My Zsh installation path
 export ZSH="$HOME/.oh-my-zsh"
 
 # Bun installation
 export BUN_INSTALL="$HOME/.bun"
 [ -s "/Users/anon/.bun/_bun" ] && source "/Users/anon/.bun/_bun"
+
+# Paths
+export PATH="$PATH:/Users/anon/.foundry/bin"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 
 # Oh My Zsh plugins
 plugins=(
