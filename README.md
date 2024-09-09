@@ -66,15 +66,14 @@ First, install Homebrew, the package manager for macOS, if you haven't already. 
 Once Homebrew is installed, run the following commands to install iTerm2, Yabai, Skhd, Neofetch, and Fish shell:
 
 ```bash
-brew install --cask sf-symbols
-brew install --cask iterm2
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
-brew install neofetch
-brew tap FelixKratz/formulae
-brew install jq
-brew install gh
-brew install sketchybar
+# Tap the necessary repositories
+brew tap koekeishiya/formulae FelixKratz/formulae
+
+# Install all required software
+brew install --cask sf-symbols iterm2 sketchybar
+brew install yabai skhd neofetch jq gh
+
+# Download and install Sketchybar font
 curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.23/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 ```
 
