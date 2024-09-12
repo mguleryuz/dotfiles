@@ -12,6 +12,9 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:/Users/anon/.foundry/bin"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+# Initialize fnm
+export PATH="$HOME/.fnm:$PATH"
+eval "$(fnm env)"
 
 # Oh My Zsh plugins
 plugins=(

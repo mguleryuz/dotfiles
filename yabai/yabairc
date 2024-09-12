@@ -47,7 +47,7 @@ yabai -m config external_bar all:39:0 \
     mouse_drop_action swap
 
 # Exclude problematic apps from being managed
-EXCLUDE_RULE=".*(Finder|CyberGhost|Settings|Preferences|Information|Progress|General|FaceTime|Utility|MetaMask|Auth|Sign|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Copy|Connect|Move|Info|Pref|Calculator|App Store).*"
+EXCLUDE_RULE=".*(Monitor|Calendar|Finder|CyberGhost|Settings|Preferences|Information|Progress|General|FaceTime|Utility|MetaMask|Auth|Sign|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Copy|Connect|Move|Info|Pref|Calculator|App Store).*"
 
 yabai -m rule --add title="$EXCLUDE_RULE" manage=off
 yabai -m rule --add label="$EXCLUDE_RULE" manage=off
