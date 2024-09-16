@@ -53,5 +53,6 @@ yabai -m rule --add title="$EXCLUDE_RULE" manage=off
 yabai -m rule --add label="$EXCLUDE_RULE" manage=off
 yabai -m rule --add app="$EXCLUDE_RULE" manage=off
 
+yabai -m rule --add app="Slack" label=".*(Huddle).*" manage=off
 yabai -m rule --add app="Surfshark" label=".*(shark).*" manage=off
 yabai -m rule --add app="NordVPN" label=".*(NordVPN).*" manage=off
