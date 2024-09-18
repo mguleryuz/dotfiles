@@ -51,6 +51,12 @@ EXLUDED_APPS=".*(Calendar|Finder|FaceTime|MetaMask|Boom 3D|Digital Colour Meter|
 EXCLUDE_RULE=".*($EXLUDED_APPS|Huddle|Monitor|System|Settings|Preferences|Information|Progress|General|Utility|Auth|Sign|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Copy|Connect|Move|Info|Pref).*"
 EXCLUDE_NON_LABEL=".*($EXCLUDE_RULE|MongoDB|Surfshark|NordVPN|CyberGhost).*"
 
+# Manage Rules
 yabai -m rule --add app="$EXCLUDE_NON_LABEL" manage=off
 yabai -m rule --add title="$EXCLUDE_NON_LABEL" manage=off
 yabai -m rule --add label="$EXCLUDE_RULE" manage=off
+
+# Floating Rules
+yabai -m rule --add app="$EXCLUDE_NON_LABEL" float=on
+yabai -m rule --add title="$EXCLUDE_NON_LABEL" float=on
+yabai -m rule --add label="$EXCLUDE_RULE" float=on
