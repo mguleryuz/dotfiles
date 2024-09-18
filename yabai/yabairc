@@ -47,12 +47,10 @@ yabai -m config external_bar all:39:0 \
     mouse_drop_action swap
 
 # Exclude problematic apps from being managed
-EXCLUDE_RULE=".*(Monitor|Calendar|Finder|CyberGhost|System|Settings|Preferences|Information|Progress|General|FaceTime|Utility|MetaMask|Auth|Sign|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Copy|Connect|Move|Info|Pref|Calculator|App Store).*"
+EXLUDED_APPS=".*(Calendar|Finder|FaceTime|MetaMask|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Calculator|App Store).*"
+EXCLUDE_RULE=".*($EXLUDED_APPS|Huddle|Monitor|System|Settings|Preferences|Information|Progress|General|Utility|Auth|Sign|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Copy|Connect|Move|Info|Pref).*"
+EXCLUDE_NON_LABEL=".*($EXCLUDE_RULE|MongoDB|Surfshark|NordVPN|CyberGhost).*"
 
-yabai -m rule --add title="$EXCLUDE_RULE" manage=off
+yabai -m rule --add app="$EXCLUDE_NON_LABEL" manage=off
+yabai -m rule --add title="$EXCLUDE_NON_LABEL" manage=off
 yabai -m rule --add label="$EXCLUDE_RULE" manage=off
-yabai -m rule --add app="$EXCLUDE_RULE" manage=off
-
-yabai -m rule --add app="Slack" label=".*(Huddle).*" manage=off
-yabai -m rule --add app="Surfshark" label=".*(shark).*" manage=off
-yabai -m rule --add app="NordVPN" label=".*(NordVPN).*" manage=off

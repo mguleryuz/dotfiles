@@ -21,10 +21,10 @@ cmd + shift - 8 : yabai -m window --space 8
 cmd + shift - 9 : yabai -m window --space 9
 
 # Move windows
-cmd + shift - left: yabai -m window --warp west
-cmd + shift - down: yabai -m window --warp south
-cmd + shift - up: yabai -m window --warp north
-cmd + shift - right: yabai -m window --warp east
+ctrl + shift - left: yabai -m window --warp west
+ctrl + shift - down: yabai -m window --warp south
+ctrl + shift - up: yabai -m window --warp north
+ctrl + shift - right: yabai -m window --warp east
 
 # Increase padding (-)
 ctrl + alt + cmd - 0x1B : yabai -m space --padding rel:20:20:20:20
@@ -67,13 +67,13 @@ shift + alt + cmd - r : yabai --restart-service
 cmd + shift - q: yabai -m window --close
 
 # Open a new terminal
-cmd - return: open -na "iterm" --args -n
+alt - return: open -na "iterm" --args -n
 
 # Open a new Brave Browser window
-cmd + shift - return: open -na "Brave Browser" --args --new-window
+alt + shift - return: open -na "Brave Browser" --args --new-window
 
 # Open File Explorer
-cmd + shift - n: open .
+alt + shift - n: open .
 
 # Open Settings
-ctrl + shift - s: open -a "System Preferences"
+alt + shift - s: open -a "System Preferences"
