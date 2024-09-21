@@ -47,9 +47,9 @@ yabai -m config external_bar all:39:0 \
     mouse_drop_action swap
 
 # Exclude problematic apps from being managed
-EXLUDED_APPS=".*(Calendar|Finder|FaceTime|MetaMask|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Calculator|App Store).*"
+EXLUDED_APPS=".*(MongoDB|Surfshark|NordVPN|CyberGhost|QuickTime|Calendar|Finder|FaceTime|MetaMask|Boom 3D|Digital Colour Meter|Notes|zoom.us|Photo Booth|Calculator|App Store).*"
 EXCLUDE_RULE=".*($EXLUDED_APPS|encrypted|call|Huddle|Monitor|System|Settings|Preferences|Information|Progress|General|Utility|Auth|Sign|Password|Website|Extension|AutoFill|Search|Security|Privacy|Advance|Copy|Connect|Move|Info|Pref).*"
-EXCLUDE_NON_LABEL=".*($EXCLUDE_RULE|MongoDB|Surfshark|NordVPN|CyberGhost).*"
+EXCLUDE_NON_LABEL=".*($EXCLUDE_RULE|Open).*"
 
 # Manage Rules
 yabai -m rule --add app="$EXCLUDE_NON_LABEL" manage=off
