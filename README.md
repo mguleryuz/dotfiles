@@ -4,7 +4,7 @@
 
 # Installation and Setup Instructions
 
-## Step 0: Disabling SIP on M Series Macs
+## Disabling SIP on M Series Macs
 
 1. **Power off your device**.
 
