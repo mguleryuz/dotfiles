@@ -7,12 +7,10 @@ echo "Installing Homebrew..."
 # Step 2: Install Required Software
 echo "Installing required software with Homebrew..."
 # Tap the necessary repositories
-brew tap koekeishiya/formulae FelixKratz/formulae
+brew tap FelixKratz/formulae
 # Install all required software
-brew install --cask sf-symbols iterm2 sketchybar
-brew install yabai skhd neofetch jq gh
-# Download and install Sketchybar font
-curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.23/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+brew install --cask sf-symbols iterm2 font-jetbrains-mono-nerd-font
+brew install neofetch koekeishiya/formulae/skhd koekeishiya/formulae/yabai sketchybar
 
 # Step 3: Configure Scripting Addition for Yabai
 echo "Checking SIP status..."
@@ -35,6 +33,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/nice-regex/zsh-npm-scripts-autocomplete ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-npm-scripts-autocomplete
+# Step 4.1: Install Powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # Step 5: Disable native space order settings
 echo "Please manually disable the following Mission Control settings:"
@@ -48,11 +49,7 @@ cp -r yabai ~/.config
 cp -r skhd ~/.config
 cp -r sketchybar ~/.config
 
-# Step 7: Source Zsh configuration
-echo "Sourcing Zsh configuration..."
-echo "source ~/.config/zsh/.zshrc" >>~/.zshrc
-
-# Step 8: Restart Services
+# Step 7: Restart Services
 echo "Restarting services..."
 yabai --restart-service
 skhd --restart-service

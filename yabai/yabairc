@@ -18,7 +18,7 @@ yabai -m signal --add event=window_focused action="sketchybar --trigger window_f
 # General Settings
 PADDING=2
 
-yabai -m config external_bar all:39:0 \
+yabai -m config external_bar all:33:0 \
     layout bsp \
     mouse_follows_focus on \
     focus_follows_mouse autoraise \
