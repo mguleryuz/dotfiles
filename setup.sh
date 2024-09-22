@@ -9,8 +9,10 @@ echo "Installing required software with Homebrew..."
 # Tap the necessary repositories
 brew tap FelixKratz/formulae
 # Install all required software
-brew install --cask sf-symbols iterm2 font-jetbrains-mono-nerd-font
+brew install --cask iterm2
 brew install neofetch koekeishiya/formulae/skhd koekeishiya/formulae/yabai sketchybar bat
+# Install the necessary fonts & symbols
+brew install sf-symbols font-jetbrains-mono-nerd-font font-hack-nerd-font
 
 # Step 3: Configure Scripting Addition for Yabai
 echo "Checking SIP status..."
