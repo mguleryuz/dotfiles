@@ -1,18 +1,28 @@
+# Disable newline between prompts
 add_newline = false
 
+# Customize the prompt symbols
 [character]
-success_symbol = '[ #](bold green)'
-error_symbol = "[ x](bold red)"
-vicmd_symbol = "[ V](bold green)"
+success_symbol = '[ ✔](bold #A6E22E)'   # Green for success (Monokai green)
+error_symbol = '[ ✘](bold #F92672)'     # Red for errors (Monokai red)
+vicmd_symbol = '[ V](bold #A6E22E)'     # Green for vim command mode (Monokai green)
 
+# Git status configuration
 [git_status]
 disabled = false
+ahead = "bold #A6E22E"   # Green for ahead (Monokai green)
+behind = "bold #F92672"  # Red for behind (Monokai red)
+diverged = "bold #E6DB74"  # Yellow for diverged (Monokai yellow)
+untracked = "bold #8f8f8f" # Gray for untracked (Monokai gray)
+stashed = "bold #AE81FF"   # Magenta for stashed (Monokai magenta)
 
+# Git commit settings
 [git_commit]
 commit_hash_length = 7
 tag_disabled = false
 only_detached = false
 
+# Disable battery and some languages
 [battery]
 disabled = true
 
@@ -22,9 +32,27 @@ disabled = true
 [cmake]
 disabled = true
 
+# Directory settings
 [directory]
 read_only = "(read only)"
+style = "bold #FFFFFF"  # White for directory style (Monokai foreground)
+format = "[$path]($style) "  # Add space after the directory
 
+# Git metrics customization
 [git_metrics]
 disabled = false
-format = '([+$added]($added_style)) ([-$deleted]($deleted_style)) '
+format = '([+$added](bold #A6E22E)) ([-$deleted](bold #F92672)) '  # Green for added, Red for deleted
+
+# Git branch module
+[git_branch]
+style = "bold #AE81FF"  # Magenta for git branches (Monokai magenta)
+
+# Time module (if you use it)
+[time]
+format = "[$time]($style)"
+time_format = "%T"  # 24-hour format
+style = "bold #66D9EF"  # Cyan for time (Monokai blue/cyan)
+
+# Use Monokai Charcoal's red color for errors and white for default styling
+[status]
+style = "bold #F92672"  # Red for errors (Monokai red)
