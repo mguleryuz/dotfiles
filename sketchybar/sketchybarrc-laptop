@@ -85,7 +85,7 @@ sketchybar --add item weather.moon q \
     --set weather.moon \
     background.color=0xFF000c18 \
     background.padding_right=-1 \
-    icon.color=0x667dc4e4 \
+    icon.color=0xffffffff \
     icon.font="$FONT_FACE:Bold:22.0" \
     icon.padding_left=4 \
     icon.padding_right=3 \
