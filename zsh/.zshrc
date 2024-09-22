@@ -42,6 +42,8 @@ plugins=(
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# bat
+alias bat='bat --paging=never'
 # When you are using zsh, you can also use global aliases to override -h and --help entirely:
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain --paging=never'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain --paging=never'
