@@ -12,14 +12,12 @@ source /Users/anon/.zshenv
 
 # Paths
 export PATH="$PATH:/Users/anon/.foundry/bin"
-export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
-
 # Bun installation
+export PATH="$BUN_INSTALL/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
-[ -s "/Users/anon/.bun/_bun" ] && source "/Users/anon/.bun/_bun"
 # Bun completions
 [ -s "/Users/anon/.bun/_bun" ] && source "/Users/anon/.bun/_bun"
 
