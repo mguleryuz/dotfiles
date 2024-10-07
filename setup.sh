@@ -34,7 +34,6 @@ echo "Installing Zsh plugins..."
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-git clone https://github.com/nice-regex/zsh-npm-scripts-autocomplete $ZSH_CUSTOM/plugins/zsh-npm-scripts-autocomplete
 # Step 4.1: Install Starship Prompt
 curl -sS https://starship.rs/install.sh | sh
 
